@@ -1,11 +1,15 @@
 import './App.css'
-import TextForm from './components/TextForm'
+import About from './components/About'
+import Navbar from './components/Navbar'
+// import TextForm from './components/TextForm'
 
 function App() {
   return (
-    <div className="container">
-      <TextForm heading="hello manish" placeholder="Enter your text here"/>
-    </div>
+    <>
+      <Navbar />
+      {/* <TextForm heading="hello manish" placeholder="Enter your text here"/> */}
+      <About />
+    </>
   )
 }
 
