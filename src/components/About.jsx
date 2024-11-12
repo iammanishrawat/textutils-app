@@ -1,17 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const About = () => {
+  const [themeStyle, setThemeStyle] = useState(
+    {
+      backgroundColor: 'white',
+      color: 'black',
+    }
+  )
+
+  const [buttonText, setButtonText] = useState('Enable Dark Mode')
+
+  const toggleStyleHandler = () => {
+    if (themeStyle.backgroundColor == 'white' ) {
+      setThemeStyle({
+        backgroundColor: 'black',
+        color: 'white'
+      })
+      setButtonText("Enable Light Mode")
+    }
+    else {
+      setThemeStyle({
+        backgroundColor: 'white',
+        color: 'black'
+      })
+      setButtonText("Enable Dark Mode")
+    }
+  }
   return (
     <>
-      <div className="container py-3">
+      <div className="container py-3" style={themeStyle}>
         <h2>About Us Page</h2>
         <br />
         <div id="accordion">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingOne" style={themeStyle}>
+              <h5 className="mb-0">
                 <button
-                  class="btn btn-link"
+                  className="btn btn-link"
                   data-toggle="collapse"
                   data-target="#collapseOne"
                   aria-expanded="true"
@@ -24,11 +49,11 @@ const About = () => {
 
             <div
               id="collapseOne"
-              class="collapse show"
+              className="collapse show"
               aria-labelledby="headingOne"
               data-parent="#accordion"
             >
-              <div class="card-body">
+              <div className="card-body" style={themeStyle}>
                 Anim pariatur cliche reprehenderit, enim eiusmod high life
                 accusamus terry richardson ad squid. 3 wolf moon officia aute,
                 non cupidatat skateboard dolor brunch. Food truck quinoa
@@ -42,11 +67,11 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h5 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingTwo" style={themeStyle}>
+              <h5 className="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  className="btn btn-link collapsed"
                   data-toggle="collapse"
                   data-target="#collapseTwo"
                   aria-expanded="false"
@@ -58,11 +83,11 @@ const About = () => {
             </div>
             <div
               id="collapseTwo"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingTwo"
               data-parent="#accordion"
             >
-              <div class="card-body">
+              <div className="card-body" style={themeStyle}>
                 Anim pariatur cliche reprehenderit, enim eiusmod high life
                 accusamus terry richardson ad squid. 3 wolf moon officia aute,
                 non cupidatat skateboard dolor brunch. Food truck quinoa
@@ -76,11 +101,11 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
+          <div className="card">
+            <div className="card-header" id="headingThree" style={themeStyle}>
+              <h5 className="mb-0">
                 <button
-                  class="btn btn-link collapsed"
+                  className="btn btn-link collapsed"
                   data-toggle="collapse"
                   data-target="#collapseThree"
                   aria-expanded="false"
@@ -92,11 +117,11 @@ const About = () => {
             </div>
             <div
               id="collapseThree"
-              class="collapse"
+              className="collapse"
               aria-labelledby="headingThree"
               data-parent="#accordion"
             >
-              <div class="card-body">
+              <div className="card-body" style={themeStyle}>
                 Anim pariatur cliche reprehenderit, enim eiusmod high life
                 accusamus terry richardson ad squid. 3 wolf moon officia aute,
                 non cupidatat skateboard dolor brunch. Food truck quinoa
@@ -112,8 +137,8 @@ const About = () => {
           </div>
         </div>
         <br />
-        <button type="button" className="btn btn-dark">
-          Dark Mode
+        <button type="button" className="btn btn-dark" onClick={toggleStyleHandler}>
+          {buttonText}
         </button>
       </div>
     </>
